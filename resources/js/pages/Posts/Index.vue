@@ -27,18 +27,6 @@ function deletePost(encrypted_id: string) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-
-            Swal.fire({
-                title: 'Processing...',
-                text: 'Please wait...',
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                showConfirmButton: false,
-                didOpen: () => {
-                    Swal.showLoading();
-                }
-            });
-
             router.post(`/delete/posts/${encrypted_id}`, {
                 preserveScroll: true,
                 onSuccess: () => {
